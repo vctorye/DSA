@@ -25,5 +25,5 @@ var combinationSum = function(candidates, target) {
     };
 
     backtrack(target, [], 0); // Initial call with full target and empty path
-    return result;
+    return result
 };
