@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    // Initialize the result array to store the right side view
+   // Initialize the result array to store the right side view
     const result = [];
 
     // Define a recursive DFS function that takes a node and its level as arguments
@@ -36,6 +36,9 @@ var rightSideView = function(root) {
 
     // Return the result array containing the right side view
     return result;
+
+
+
 };
 
 /*
