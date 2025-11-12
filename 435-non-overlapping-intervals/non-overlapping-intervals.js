@@ -3,17 +3,24 @@
  * @return {number}
  */
 var eraseOverlapIntervals = function(intervals) {
-     let res = 0;
-    intervals.sort((a, b) => a[1] - b[1]);
-    let prev_end = intervals[0][1];
+    // edge case 
+    if (intervals.length === 0) return 0
 
+    // sort out intervals
+    intervals.sort((a, b) => a[1] - b[1]);
+
+    // set variables 
+    let count = 1;
+    let lastEnd = intervals[0][1];      
+
+    // iterate through intervals
     for (let i = 1; i < intervals.length; i++) {
-        if (prev_end > intervals[i][0]) {
-            res++;
-        } else {
-            prev_end = intervals[i][1];
+        const [start, end] = intervals[i];
+        if (start >= lastEnd) {
+            count++;
+            lastEnd = end
         }
     }
 
-    return res;    
+    return intervals.length - count
 };
