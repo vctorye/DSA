@@ -24,4 +24,5 @@ var sortedArrayToBST = function(nums) {
     }
 
     return build(0, nums.length - 1);
+
 };
