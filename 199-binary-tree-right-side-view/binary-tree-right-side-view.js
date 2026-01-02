@@ -11,34 +11,45 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-   // Initialize the result array to store the right side view
+    // dfs way
+    // const result = [];
+
+    // function dfs(node, level) {
+    //     if (!node) return;
+
+    //     if (result.length === level) {
+    //         result.push(node.val);
+    //     }
+
+    //     dfs(node.right, level + 1);
+
+    //     dfs(node.left, level + 1);
+    // }
+
+    // dfs(root, 0);
+    // return result 
+
+    // queue
+    if (!root) return [];
     const result = [];
+    let queue = [root]
 
-    // Define a recursive DFS function that takes a node and its level as arguments
-    function dfs(node, level) {
-        // Base case: if the node is null, return
-        if (!node) return;
+    while (queue.length > 0) {
+        const levelSize = queue.length;
 
-        // If this level hasn't been visited, add the node's value to the result
-        if (result.length === level) {
-            result.push(node.val);
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+
+            if (i === levelSize - 1) {
+                result.push(node.val);
+            }
+            if (node.left) queue.push(node.left)
+            if (node.right) queue.push(node.right)
+
         }
-
-        // Traverse the right subtree first to prioritize rightmost nodes
-        dfs(node.right, level + 1);
-
-        // Then traverse the left subtree
-        dfs(node.left, level + 1);
     }
 
-    // Start DFS from the root at level 0
-    dfs(root, 0);
-
-    // Return the result array containing the right side view
-    return result;
-
-
-
+    return result
 };
 
 /*
