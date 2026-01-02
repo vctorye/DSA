@@ -11,10 +11,8 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    // set maxdiameter variable 
     let maxDiameter = 0;
 
-    // define our dfs function 
     const dfs = (node) => {
         if (!node) return 0;
 
@@ -23,10 +21,10 @@ var diameterOfBinaryTree = function(root) {
 
         maxDiameter = Math.max(maxDiameter, leftHeight + rightHeight);
 
-        return Math.max(leftHeight, rightHeight) + 1
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     dfs(root);
-    return maxDiameter;
+    return maxDiameter 
 };
 
