@@ -17,8 +17,8 @@ var suggestedProducts = function(products, searchWord) {
                 if (suggestions.length === 3) break
             }
         }
-        result.push(suggestions);
+        result.push(suggestions)
     }
 
-    return result;
+    return result
 };
