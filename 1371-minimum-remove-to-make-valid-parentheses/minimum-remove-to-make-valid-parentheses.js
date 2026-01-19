@@ -3,22 +3,22 @@
  * @return {string}
  */
 var minRemoveToMakeValid = function(s) {
+    const string = s.split("");
     let stack = [];
-    let array = s.split('');
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === '(') {
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '(') {
             stack.push(i);
-        } else if (array[i] === ')' && stack.length === 0) {
-            array[i] = "";
-        }   else if (array[i] === ")" && stack.length)   {
-            stack.pop()
+        } else if (string[i] === ')' && stack.length > 0) {
+            stack.pop();
+        } else if (string[i] === ')' && stack.length === 0) {
+            string[i] = '';
         }
     }
 
     for (let i = 0; i < stack.length; i++) {
-        array[stack[i]] = "";
-    }
+        string[stack[i]] = '';
+    } 
 
-    return array.join('')
+    return string.join('')
 };
