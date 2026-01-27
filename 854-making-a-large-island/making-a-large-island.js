@@ -19,7 +19,6 @@ var largestIsland = function(grid) {
             area += dfs(r + dr, c + dc, id)
         }
 
-    console.log(area)
         return area
     }
 
@@ -33,7 +32,6 @@ var largestIsland = function(grid) {
             }
         }
     }
-     console.log(areaMap)
     if (!hasLand) return 1;
 
     let maxArea = Math.max(...areaMap.values());
