@@ -12,7 +12,7 @@ var maxSumAfterPartitioning = function(arr, k) {
 
         for (let len = 1; len <= k && i - len >= 0; len++) {
             currMax = Math.max(currMax, arr[i - len]);
-            dp[i] = Math.max(dp[i], dp[ i - len] + currMax * len)
+            dp[i] = Math.max(dp[i], dp[i - len] + currMax * len)
         }
     }
 
