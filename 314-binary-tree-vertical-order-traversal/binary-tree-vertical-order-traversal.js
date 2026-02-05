@@ -12,23 +12,28 @@
  */
 var verticalOrder = function(root) {
     if (!root) return [];
-
-    let queue = [[root, 0]];
     let map = {};
+    let queue = [[root, 0]];
 
-    while (queue.length) {
+    while (queue.length > 0) {
         const [node, level] = queue.shift();
+
         if (!map[level]) {
             map[level] = [];
         }
 
         map[level].push(node.val);
 
-        if (node.left) queue.push([node.left, level - 1])
+        if (node.left) queue.push([node.left, level - 1]);
         if (node.right) queue.push([node.right, level + 1])
 
     }
-    return Object.keys(map).sort((a, b) => a-  b).map((k) => map[k])
-}; 
+
+
+    
+
+    return Object.keys(map).sort((a, b) => a - b).map((k) => map[k])
+    
+}
 
 
