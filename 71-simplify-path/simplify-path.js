@@ -3,20 +3,19 @@
  * @return {string}
  */
 var simplifyPath = function(path) {
+    let array = path.split('/');
     let stack = [];
-    let parts = path.split('/')
-    console.log(parts)
-    for (let part of parts) {
-        if (part === '' || part === '.') {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "." || array[i] === "") {
             continue;
-        } else if (part === '..') {
-            stack.pop();
-        } else {
-            stack.push(part);
+        } else if (array[i] === '..') {
+            stack.pop(); 
+        } else{
+            stack.push(array[i])
         }
     }
 
-    return '/' + stack.join('/')
+    return '/' + stack.join('/');
 };
 
 
