@@ -11,34 +11,43 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    // dfs way
+// dfs way
     // const result = [];
+
 
     // function dfs(node, level) {
     //     if (!node) return;
+
 
     //     if (result.length === level) {
     //         result.push(node.val);
     //     }
 
+
     //     dfs(node.right, level + 1);
+
 
     //     dfs(node.left, level + 1);
     // }
 
+
     // dfs(root, 0);
-    // return result 
+    // return result
+
 
     // queue
     if (!root) return [];
     const result = [];
     let queue = [root]
 
+
     while (queue.length > 0) {
         const levelSize = queue.length;
 
+
         for (let i = 0; i < levelSize; i++) {
             const node = queue.shift();
+
 
             if (i === levelSize - 1) {
                 result.push(node.val);
@@ -46,10 +55,13 @@ var rightSideView = function(root) {
             if (node.left) queue.push(node.left)
             if (node.right) queue.push(node.right)
 
+
         }
     }
 
+
     return result
+
 };
 
 /*
