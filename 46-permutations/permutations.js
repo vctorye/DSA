@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var permute = function(nums) {
-    const result = [];
+const result = [];
     
     const backtrack = (start) => {
         if (start === nums.length) {
