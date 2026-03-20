@@ -11,6 +11,7 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
+
     const dummy = new ListNode(0); // Dummy node to simplify edge cases
     let current = dummy;
     let carry = 0;
